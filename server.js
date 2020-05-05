@@ -40,8 +40,7 @@ function updateRecentPhotos() {
 const intervalID = setInterval(updateRecentPhotos, 10 * 1000)
 
 function nextPageHandler(req, res) {
-    let page = req.query.page ? req.query.page : 1
-    flickrApi.get({page}).then(result => res.send(result))
+    flickrApi.get(req.query).then(result => res.send(result))
 }
 
 app.use(cors())
